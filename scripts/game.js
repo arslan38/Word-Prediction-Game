@@ -106,7 +106,12 @@ function handleGuess() {
     }
 }
 
-
+// listen enter key
+guessInput.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+        handleGuess(); 
+    }
+});
 
 // Event listeners
 submitButton.addEventListener("click", handleGuess);
