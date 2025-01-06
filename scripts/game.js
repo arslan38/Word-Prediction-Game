@@ -37,11 +37,15 @@ function initGame() {
     updateDisplay();
 }
 
+function getBlankSvg() {
+    return document.body.classList.contains('dark-theme') ? 'assets/blank-dark.svg' : 'assets/blank.svg';
+}
+
 function updateDisplay() {
     wordArea.innerHTML = "";
     hiddenWord.forEach((char) => {
         const img = document.createElement("img");
-        img.src = char === "_" ? "assets/blank.svg" : `assets/${char}.svg`;
+        img.src = char === "_" ? getBlankSvg() : `assets/${char}.svg`;
         img.alt = char;
         wordArea.appendChild(img);
     });
