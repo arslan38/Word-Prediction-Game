@@ -1,4 +1,3 @@
-// Game variables
 const wordList = {
     0: "ADIEU",
     1: "SYNTH",
@@ -12,8 +11,7 @@ const wordList = {
     9: "BLINK"
 };
 
-// Replace with the last digit of your student ID
-const studentIDLastDigit = 5; // Example: UNITY
+const studentIDLastDigit = 4; // My ID: 150200314
 const word = wordList[studentIDLastDigit];
 let hiddenWord = "_".repeat(word.length).split("");
 let score = 0;
@@ -27,7 +25,6 @@ const guessInput = document.getElementById("guess");
 const submitButton = document.getElementById("submit-guess");
 const resetButton = document.getElementById("reset-game");
 
-// Initialize game
 function initGame() {
     hiddenWord = "_".repeat(word.length).split("");
     score = 0;
@@ -36,14 +33,18 @@ function initGame() {
     wordArea.textContent = hiddenWord.join(" ");
 }
 
-// Update display
 function updateDisplay() {
     wordArea.textContent = hiddenWord.join(" ");
     scoreDisplay.textContent = score;
-    livesDisplay.textContent = lives + " " + "❤️".repeat(lives);
+
+    let hearts = "";
+    for (let i = 0; i < lives; i++) {
+        hearts += "❤️";
+    }
+    livesDisplay.textContent = hearts;
 }
 
-// Handle guess
+
 function handleGuess() {
     const guess = guessInput.value.toUpperCase().trim();
     guessInput.value = "";
@@ -66,7 +67,6 @@ function handleGuess() {
             lives--;
         }
     } else if (guess.length === word.length) {
-        // Word guess
         if (guess === word) {
             alert("You win!");
             score += 100;
@@ -92,7 +92,6 @@ function handleGuess() {
     }
 }
 
-// Event listeners
 submitButton.addEventListener("click", handleGuess);
 resetButton.addEventListener("click", initGame);
 
