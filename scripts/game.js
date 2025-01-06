@@ -25,25 +25,26 @@ const guessInput = document.getElementById("guess");
 const submitButton = document.getElementById("submit-guess");
 const resetButton = document.getElementById("reset-game");
 
+// Initialize game
 function initGame() {
     hiddenWord = "_".repeat(word.length).split("");
     score = 0;
     lives = 3;
     updateDisplay();
-    wordArea.textContent = hiddenWord.join(" ");
 }
 
 function updateDisplay() {
-    wordArea.textContent = hiddenWord.join(" ");
+    wordArea.innerHTML = "";
+    hiddenWord.forEach((char) => {
+        const img = document.createElement("img");
+        img.src = char === "_" ? "assets/blank.svg" : `assets/${char}.svg`;
+        img.alt = char;
+        wordArea.appendChild(img);
+    });
+
     scoreDisplay.textContent = score;
-
-    let hearts = "";
-    for (let i = 0; i < lives; i++) {
-        hearts += "❤️";
-    }
-    livesDisplay.textContent = hearts;
+    livesDisplay.textContent = lives + " " + "❤️".repeat(lives);
 }
-
 
 function handleGuess() {
     const guess = guessInput.value.toUpperCase().trim();
@@ -55,7 +56,6 @@ function handleGuess() {
     }
 
     if (guess.length === 1) {
-        // Letter guess
         if (word.includes(guess)) {
             score += 20;
             for (let i = 0; i < word.length; i++) {
@@ -76,8 +76,6 @@ function handleGuess() {
             alert("Incorrect word. You lose!");
             lives = 0;
         }
-    } else {
-        alert("Invalid input. Enter one letter or a full word.");
     }
 
     if (hiddenWord.join("") === word) {
@@ -85,15 +83,15 @@ function handleGuess() {
         score += 100;
         initGame();
     } else if (lives <= 0) {
-        alert("You lose! The word was " + word);
+        alert(`You lose! The word was ${word}`);
         initGame();
     } else {
         updateDisplay();
     }
 }
 
+// Event listeners
 submitButton.addEventListener("click", handleGuess);
 resetButton.addEventListener("click", initGame);
 
-// Start game
 initGame();
