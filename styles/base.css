@@ -100,3 +100,23 @@ button {
     padding: 10px;
     font-size: 1.2em;
 }
+
+#used-letters-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#used-letters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#used-letters span {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}

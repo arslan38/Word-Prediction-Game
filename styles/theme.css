@@ -58,13 +58,17 @@ button:hover {
     background-color: var(--secondary-color);
 }
 
-body.dark-theme #guess {
-    background-color: #333333;
-    color: #ffffff;
-    border: 1px solid #555555;
+#guess {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
 }
 
-body.dark-theme #guess::placeholder {
-    color: #aaaaaa;
+#guess::placeholder {
+    color: var(--text-color);
 }
 
+#used-letters span {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
