@@ -94,3 +94,9 @@ button {
 #theme-toggle:active {
     transform: translateY(0);
 }
+
+#guess {
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1.2em;
+}
