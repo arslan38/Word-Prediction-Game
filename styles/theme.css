@@ -1,0 +1,60 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --primary-color: #4CAF50;
+    --secondary-color: #45a049;
+    --border-color: #ccc;
+} /* Light Theme */
+
+/* Dark Theme */
+body.dark-theme {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --primary-color: #333333;
+    --secondary-color: #444444;
+    --border-color: #555555;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+header, footer {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+#about-me, #game {
+    background-color: var(--bg-color);
+    border-color: var(--border-color);
+}
+
+#social-links a {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+#social-links a:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}
+
+#theme-toggle {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+#theme-toggle:hover {
+    background-color: var(--secondary-color);
+}
+
