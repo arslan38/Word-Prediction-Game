@@ -11,6 +11,8 @@ const wordList = {
     9: "BLINK"
 };
 
+const usedLettersContainer = document.getElementById("used-letters");
+let usedLetters = [];
 const studentIDLastDigit = 4; // My ID: 150200314
 const word = wordList[studentIDLastDigit];
 let hiddenWord = "_".repeat(word.length).split("");
@@ -34,11 +36,17 @@ function initGame() {
     hiddenWord = "_".repeat(word.length).split("");
     score = 0;
     lives = 3;
+    usedLetters = [];
     updateDisplay();
+    updateUsedLetters();
 }
 
 function getBlankSvg() {
     return document.body.classList.contains('dark-theme') ? 'assets/blank-dark.svg' : 'assets/blank.svg';
+}
+
+function updateUsedLetters() {
+    usedLettersContainer.innerHTML = usedLetters.map(letter => `<span>${letter}</span>`).join("");
 }
 
 function updateDisplay() {
@@ -64,6 +72,9 @@ function handleGuess() {
     }
 
     if (guess.length === 1) {
+        usedLetters.push(guess);
+        updateUsedLetters();
+        
         if (word.includes(guess)) {
             // letter guess
             score += 20;
