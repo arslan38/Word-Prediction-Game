@@ -25,7 +25,6 @@ const guessInput = document.getElementById("guess");
 const submitButton = document.getElementById("submit-guess");
 const resetButton = document.getElementById("reset-game");
 
-// Initialize game
 function initGame() {
     hiddenWord = "_".repeat(word.length).split("");
     score = 0;
@@ -57,6 +56,7 @@ function handleGuess() {
 
     if (guess.length === 1) {
         if (word.includes(guess)) {
+            // letter guess
             score += 20;
             for (let i = 0; i < word.length; i++) {
                 if (word[i] === guess) {
@@ -67,28 +67,41 @@ function handleGuess() {
             lives--;
         }
     } else if (guess.length === word.length) {
+        // Full word guess
         if (guess === word) {
-            alert("You win!");
             score += 100;
-            initGame();
-            return;
+            updateDisplay();
+            setTimeout(() => {
+                alert("You win!");
+                initGame();
+            }, 100);
+            return; // exit early if player wins
         } else {
-            alert("Incorrect word. You lose!");
-            lives = 0;
+            alert(`Incorrect word. You lose! The word was ${word}`);
+            initGame(); 
+            return;
         }
+    } else {
+        alert("Invalid input. Please enter one letter or a full word.");
     }
 
+    updateDisplay();
+
     if (hiddenWord.join("") === word) {
-        alert("You win!");
         score += 100;
-        initGame();
+        setTimeout(() => {
+            alert("You win!");
+            initGame();
+        }, 100);// delay to make sure last letter is visible    
     } else if (lives <= 0) {
-        alert(`You lose! The word was ${word}`);
-        initGame();
-    } else {
-        updateDisplay();
+        setTimeout(() => {
+            alert(`You lose! The word was ${word}`);
+            initGame();
+        }, 100);
     }
 }
+
+
 
 // Event listeners
 submitButton.addEventListener("click", handleGuess);
