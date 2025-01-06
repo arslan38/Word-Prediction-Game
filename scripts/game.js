@@ -25,6 +25,11 @@ const guessInput = document.getElementById("guess");
 const submitButton = document.getElementById("submit-guess");
 const resetButton = document.getElementById("reset-game");
 
+// Focus input field when page loaded
+window.onload = () => {
+    guessInput.focus();
+};
+
 function initGame() {
     hiddenWord = "_".repeat(word.length).split("");
     score = 0;
