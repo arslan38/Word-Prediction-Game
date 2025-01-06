@@ -52,3 +52,50 @@ footer {
     background-color: #f1f1f1;
     padding: 10px 0;
 }
+#game {
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+#score-lives {
+    margin-bottom: 20px;
+}
+
+#word-area {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+    letter-spacing: 1.5em;
+}
+
+#input-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#guess {
+    padding: 10px;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
