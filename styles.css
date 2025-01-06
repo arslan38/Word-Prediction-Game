@@ -1,0 +1,54 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Header */
+header {
+    background: #4CAF50;
+    color: white;
+    padding: 1em 0;
+}
+
+/* About Me Section */
+#about-me {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+#profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+/* Navigation */
+#navigation button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#navigation button:hover {
+    background-color: #45a049;
+}
+
+/* Footer */
+footer {
+    margin-top: 20px;
+    background-color: #f1f1f1;
+    padding: 10px 0;
+}
