@@ -72,8 +72,11 @@ function handleGuess() {
     }
 
     if (guess.length === 1) {
-        usedLetters.push(guess);
-        updateUsedLetters();
+        
+        if (usedLetters.includes(guess)) {
+            alert(`You already guessed the letter "${guess}". Try another one!`);
+            return;
+        }
         
         if (word.includes(guess)) {
             // letter guess
@@ -84,6 +87,8 @@ function handleGuess() {
                 }
             }
         } else {
+            usedLetters.push(guess);
+            updateUsedLetters();
             lives--;
         }
     } else if (guess.length === word.length) {
