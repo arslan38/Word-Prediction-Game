@@ -13,6 +13,7 @@ const wordList = {
 
 const usedLettersContainer = document.getElementById("used-letters");
 let usedLetters = [];
+let foundLetters = [];
 const studentIDLastDigit = 4; // My ID: 150200314
 const word = wordList[studentIDLastDigit];
 let hiddenWord = "_".repeat(word.length).split("");
@@ -37,6 +38,7 @@ function initGame() {
     score = 0;
     lives = 3;
     usedLetters = [];
+    foundLetters = [];
     updateDisplay();
     updateUsedLetters();
 }
@@ -73,7 +75,7 @@ function handleGuess() {
 
     if (guess.length === 1) {
         
-        if (usedLetters.includes(guess)) {
+        if (usedLetters.includes(guess) || foundLetters.includes(guess)) {
             alert(`You already guessed the letter "${guess}". Try another one!`);
             return;
         }
@@ -84,6 +86,7 @@ function handleGuess() {
             for (let i = 0; i < word.length; i++) {
                 if (word[i] === guess) {
                     hiddenWord[i] = guess;
+                    foundLetters.push(guess);
                 }
             }
         } else {
